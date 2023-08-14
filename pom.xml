@@ -17,9 +17,17 @@
         <Ver_cucumberTestng>7.12.1</Ver_cucumberTestng>
         <Ver_testng>7.7.1</Ver_testng>
         <Ver_sureFile>3.1.2</Ver_sureFile>
+        <webdriverManager.version>5.4.1</webdriverManager.version>
     </properties>
 
     <dependencies>
+        <!-- https://mvnrepository.com/artifact/io.github.bonigarcia/webdrivermanager -->
+        <dependency>
+            <groupId>io.github.bonigarcia</groupId>
+            <artifactId>webdrivermanager</artifactId>
+            <version>${webdriverManager.version}</version>
+        </dependency>
+
         <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>

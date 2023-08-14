@@ -7,13 +7,13 @@ Feature: Login functionality using the demo site for POC
   Background:
     Given Go to the webpage
 
-  Scenario: Login with successful credential
-    Given Enter the correct credential
-    When Click on login button
-    Then I should able to login successfully
-
-  Scenario: Login with successful credential
+  Scenario: Login following Logout successful.
     Given Enter the correct credential
     When Click on login button
     Then I should able to login successfully
     Then I should able to logout successfully
+
+  Scenario: Verify incorrect Login.
+    Given Enter the incorrect credential
+    When Click on login button
+    Then I should able to see failure login
