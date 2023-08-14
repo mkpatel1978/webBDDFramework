@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Web Application Framework BDD based POC" verbose="2" preserve-order="true" parallel="classes"
+       thread-count="2">
+    <test name="Login using BDD">
+        <classes>
+            <class name="runner.TestRunner"></class>
+        </classes>
+    </test>
+</suite>
