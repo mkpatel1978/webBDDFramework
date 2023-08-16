@@ -21,7 +21,6 @@
         <Ver_sureFile>3.1.2</Ver_sureFile>
     </properties>
 
-
     <build>
         <plugins>
             <plugin>

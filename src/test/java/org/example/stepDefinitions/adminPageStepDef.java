@@ -1,11 +1,16 @@
 package org.example.stepDefinitions;
 
+//import io.cucumber.java.After;
+//import io.cucumber.java.AfterAll;
+//import io.cucumber.java.Before;
+//import io.cucumber.java.BeforeAll;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.hrm.pages.adminPage;
 import org.hrm.pages.loginPage;
 import org.testng.Assert;
+import org.testng.annotations.*;
 
 public class adminPageStepDef extends BaseClass {
 
@@ -13,9 +18,7 @@ public class adminPageStepDef extends BaseClass {
     private loginPage loginPage;
     private adminPage adminPage;
 
-    private int runonce = 0;
-
-//    @Before(order = 1)
+//    @Before
 //    public void setup() {
 //        System.out.println("MK:Admin");
 //        setupApplication();
@@ -23,8 +26,8 @@ public class adminPageStepDef extends BaseClass {
 //        loginPage = new loginPage(driver);
 //        adminPage = new adminPage(driver);
 //    }
-//
-//    @After(order = 1)
+
+//    @After
 //    public void tearDown() {
 //        System.out.println("aftermkadmin:" + driver);
 //        closeApplication();

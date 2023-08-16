@@ -1,11 +1,16 @@
 package org.example.stepDefinitions;
 
+//import io.cucumber.java.After;
+//import io.cucumber.java.AfterAll;
+//import io.cucumber.java.Before;
+//import io.cucumber.java.BeforeAll;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.testng.Assert;
 
 import org.hrm.pages.loginPage;
+import org.testng.annotations.*;
 
 
 public class loginPageStepDef extends BaseClass {
@@ -13,15 +18,15 @@ public class loginPageStepDef extends BaseClass {
     //        private WebDriver driver;
     private loginPage loginPage;
 
-//    @Before(order = 1)
+//    @Before
 //    public void setup() {
-//        System.out.println("MK:login");
+//        System.out.println("MKdriver:login" + driver);
 //
 //        setupApplication();
 //        loginPage = new loginPage(driver);
 //    }
-//
-//    @After(order = 1)
+
+//    @After
 //    public void tearDown() {
 //        System.out.println("aftermklogin:" + driver);
 //        closeApplication();

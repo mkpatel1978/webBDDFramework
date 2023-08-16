@@ -1,5 +1,7 @@
 package org.example.stepDefinitions;
 
+import io.cucumber.java.AfterAll;
+import io.cucumber.java.BeforeAll;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -13,7 +15,7 @@ public class BaseClass {
     public WebDriver driver;
 //    public WebDriverWait wait;
 
-//    @BeforeClass
+
     public void setupApplication() {
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
@@ -26,7 +28,7 @@ public class BaseClass {
         driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
     }
 
-//    @AfterClass
+
     public void closeApplication() {
         if (driver != null) {
             driver.close();

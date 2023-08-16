@@ -24,9 +24,9 @@ public class loginPage {
 
     public loginPage(WebDriver driver) {
         this.driver = driver;
-        wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+        wait = new WebDriverWait(this.driver, Duration.ofSeconds(30));
 
-//        setupApplication();
+        //        setupApplication();
 //        driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
     }
 
