@@ -1,45 +1,36 @@
 package org.example.stepDefinitions;
 
-import io.cucumber.java.After;
-import io.cucumber.java.Before;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import io.github.bonigarcia.wdm.WebDriverManager;
-import org.openqa.selenium.WebDriver;
-import org.example.pages.loginPage;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 
-import java.time.Duration;
-import java.util.concurrent.TimeUnit;
+import org.hrm.pages.loginPage;
 
 
-public class loginPageStepDef {
+public class loginPageStepDef extends BaseClass {
 
-    private WebDriver driver;
+    //        private WebDriver driver;
     private loginPage loginPage;
 
-    @Before
-    public void setup() {
-        WebDriverManager.chromedriver().setup();
-        driver = new ChromeDriver();
-        driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));// An implicit wait is to tell WebDriver to poll
-    }
+//    @Before(order = 1)
+//    public void setup() {
+//        System.out.println("MK:login");
+//
+//        setupApplication();
+//        loginPage = new loginPage(driver);
+//    }
+//
+//    @After(order = 1)
+//    public void tearDown() {
+//        System.out.println("aftermklogin:" + driver);
+//        closeApplication();
+//    }
 
-    @After
-    public void tearDown() {
-        if (driver != null) {
-            driver.close();
-            driver.quit();
-        }
-    }
-
-
-    @Given("Go to the webpage")
-    public void go_to_the_webpage() {
-        driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
+    @Given("Go to the webpage for login")
+    public void go_to_the_webpage_for_login() {
+        setupApplication();
+//        driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
         loginPage = new loginPage(driver);
     }
 
@@ -77,6 +68,28 @@ public class loginPageStepDef {
     public void i_should_able_to_see_failure_login() {
         String loginFailed = loginPage.checkLoginFailMessage();
         Assert.assertEquals(loginFailed, "Invalid credentials");
+    }
+
+    @Given("Click on Forgot your password link")
+    public void click_on_forgot_your_password_link() {
+        loginPage.clickForgotPassword();
+    }
+
+    @When("Enter username and click on reset password")
+    public void enter_username_and_click_on_reset_password() {
+        loginPage.inputUserName("mk");
+        loginPage.clickLogin();
+    }
+
+    @Then("Password reset message should appear")
+    public void password_reset_message_should_appear() {
+        String resetMsg = loginPage.verifyResetPasswordMsg();
+        Assert.assertEquals(resetMsg, "Reset Password link sent successfully");
+    }
+
+    @Then("Ensure Application is closed")
+    public void Ensure_Application_is_closed() {
+        closeApplication();
     }
 
 }
