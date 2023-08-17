@@ -4,39 +4,44 @@ package org.example.stepDefinitions;
 //import io.cucumber.java.AfterAll;
 //import io.cucumber.java.Before;
 //import io.cucumber.java.BeforeAll;
+
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+
+import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 
 import org.hrm.pages.loginPage;
 import org.testng.annotations.*;
 
-
 public class loginPageStepDef extends BaseClass {
+
 
     //        private WebDriver driver;
     private loginPage loginPage;
 
-//    @Before
+    //    @Before
 //    public void setup() {
-//        System.out.println("MKdriver:login" + driver);
-//
+//        System.out.println("MK:setuplogin - ");
 //        setupApplication();
 //        loginPage = new loginPage(driver);
 //    }
-
+//
 //    @After
 //    public void tearDown() {
-//        System.out.println("aftermklogin:" + driver);
 //        closeApplication();
+//        System.out.println("MK:downlogin - ");
 //    }
+
 
     @Given("Go to the webpage for login")
     public void go_to_the_webpage_for_login() {
         setupApplication();
 //        driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
         loginPage = new loginPage(driver);
+        System.out.println("Logindriver: " + driver);
+        System.out.println("loginpage: " + loginPage);
     }
 
 

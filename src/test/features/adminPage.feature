@@ -13,3 +13,4 @@ Feature: Login functionality using the demo site for POC
     Then I should able to browse Admin section
     Then I should able to logout successfully from adminpage
     Then Ensure Application is closed Admin
+#    Then Ensure Application is closed

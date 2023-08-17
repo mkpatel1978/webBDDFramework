@@ -4,11 +4,13 @@ package org.example.stepDefinitions;
 //import io.cucumber.java.AfterAll;
 //import io.cucumber.java.Before;
 //import io.cucumber.java.BeforeAll;
+
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.hrm.pages.adminPage;
 import org.hrm.pages.loginPage;
+import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.*;
 
@@ -18,19 +20,19 @@ public class adminPageStepDef extends BaseClass {
     private loginPage loginPage;
     private adminPage adminPage;
 
-//    @Before
+    //    @Before
 //    public void setup() {
-//        System.out.println("MK:Admin");
+//        System.out.println("MK:setupadmin - ");
 //        setupApplication();
 //
 //        loginPage = new loginPage(driver);
 //        adminPage = new adminPage(driver);
 //    }
-
+//
 //    @After
 //    public void tearDown() {
-//        System.out.println("aftermkadmin:" + driver);
 //        closeApplication();
+//        System.out.println("MK:downadmin - ");
 //    }
 
     @Given("Go to the webpage for admin")

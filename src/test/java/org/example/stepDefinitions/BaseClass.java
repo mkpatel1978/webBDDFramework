@@ -1,22 +1,19 @@
 package org.example.stepDefinitions;
 
-import io.cucumber.java.AfterAll;
-import io.cucumber.java.BeforeAll;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
 
 import java.time.Duration;
 
+
 public class BaseClass {
     public WebDriver driver;
+
 //    public WebDriverWait wait;
 
-
-    public void setupApplication() {
+     public void setupApplication() {
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
 
@@ -26,14 +23,19 @@ public class BaseClass {
 //        wait = new WebDriverWait(driver, Duration.ofSeconds(30));
 
         driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
+
     }
 
-
     public void closeApplication() {
+//        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
         if (driver != null) {
-            driver.close();
+//            driver.close();
             driver.quit();
         }
     }
+
+//    public WebDriver getDriver(){
+//         return driver;
+//    }
 
 }
