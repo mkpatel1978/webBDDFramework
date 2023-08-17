@@ -7,8 +7,8 @@ import org.testng.annotations.DataProvider;
 import java.time.Duration;
 
 @CucumberOptions(features = "src/test/features",
-//        glue = "org.example.stepDefinitions",
-        extraGlue = "org.example.stepDefinitions",
+//        glue = "org.hrm.stepDefinitions",
+        extraGlue = "org.hrm.stepDefinitions",
         plugin = {"pretty", "html:target/cucumber-reports", "json:target/cucumber.json"},
         dryRun = false,
         monochrome = true,

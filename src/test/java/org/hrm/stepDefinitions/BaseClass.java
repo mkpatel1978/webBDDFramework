@@ -1,4 +1,4 @@
-package org.example.stepDefinitions;
+package org.hrm.stepDefinitions;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
@@ -10,10 +10,11 @@ import java.time.Duration;
 
 public class BaseClass {
     public WebDriver driver;
+    public String URL;
 
 //    public WebDriverWait wait;
 
-     public void setupApplication() {
+    public void setupApplication() {
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
 
@@ -22,8 +23,8 @@ public class BaseClass {
 
 //        wait = new WebDriverWait(driver, Duration.ofSeconds(30));
 
-        driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
-
+//        driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
+        URL = "https://opensource-demo.orangehrmlive.com/";
     }
 
     public void closeApplication() {

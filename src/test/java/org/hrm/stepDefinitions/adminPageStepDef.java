@@ -1,18 +1,11 @@
-package org.example.stepDefinitions;
-
-//import io.cucumber.java.After;
-//import io.cucumber.java.AfterAll;
-//import io.cucumber.java.Before;
-//import io.cucumber.java.BeforeAll;
+package org.hrm.stepDefinitions;
 
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.hrm.pages.adminPage;
 import org.hrm.pages.loginPage;
-import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
-import org.testng.annotations.*;
 
 public class adminPageStepDef extends BaseClass {
 
@@ -39,6 +32,7 @@ public class adminPageStepDef extends BaseClass {
     public void go_to_the_webpage_for_admin() {
         setupApplication();
 //        driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
+        driver.get(URL + "web/index.php/auth/login");
         loginPage = new loginPage(driver);
         adminPage = new adminPage(driver);
     }
