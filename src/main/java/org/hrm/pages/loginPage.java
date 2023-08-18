@@ -25,14 +25,13 @@ public class loginPage {
     public loginPage(WebDriver driver) {
         this.driver = driver;
         wait = new WebDriverWait(this.driver, Duration.ofSeconds(30));
+    }
 
-        //        setupApplication();
-//        driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
+    public String getPageTitle() {
+        return driver.getTitle();
     }
 
     public void inputUserName(String user) {
-        System.out.println("mk: " + driver);
-//        System.out.println("mksuper: " + super.driver);
         wait.until(ExpectedConditions.presenceOfElementLocated(userName));
         WebElement userNameInput = driver.findElement(userName);
 

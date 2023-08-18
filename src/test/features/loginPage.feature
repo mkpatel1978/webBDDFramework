@@ -12,16 +12,16 @@ Feature: Login functionality using the demo site for POC
     When Click on login button
     Then I should able to login successfully
     Then I should able to logout successfully
-    Then Ensure Application is closed
+#    Then Ensure Application is closed
 
   Scenario: Verify incorrect Login.
     Given Enter the incorrect credential
     When Click on login button
     Then I should able to see failure login
-    Then Ensure Application is closed
+#    Then Ensure Application is closed
 
   Scenario: Validate forgot password
     Given Click on Forgot your password link
     When Enter username and click on reset password
     Then Password reset message should appear
-    Then Ensure Application is closed
+#    Then Ensure Application is closed

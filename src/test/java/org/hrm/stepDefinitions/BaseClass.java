@@ -12,31 +12,30 @@ public class BaseClass {
     public WebDriver driver;
     public String URL;
 
+    public static ThreadLocal<WebDriver> tlDriver = new ThreadLocal<>();
 //    public WebDriverWait wait;
 
-    public void setupApplication() {
+    public WebDriver setupApplication() {
         WebDriverManager.chromedriver().setup();
-        driver = new ChromeDriver();
+        tlDriver.set(new ChromeDriver());
+//        driver = new ChromeDriver();
 
-        driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(60));// An implicit wait is to tell WebDriver to poll
+        getDriver().manage().deleteAllCookies();
+        getDriver().manage().window().maximize();
+        getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(60));// An implicit wait is to tell WebDriver to poll
 
 //        wait = new WebDriverWait(driver, Duration.ofSeconds(30));
-
+        System.out.println("baseopen" + getDriver());
 //        driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
         URL = "https://opensource-demo.orangehrmlive.com/";
+
+        return getDriver();
     }
 
-    public void closeApplication() {
-//        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-        if (driver != null) {
-//            driver.close();
-            driver.quit();
-        }
+    public static synchronized WebDriver getDriver() {
+//    public static WebDriver getDriver() {
+        return tlDriver.get();
+//        return driver;
     }
-
-//    public WebDriver getDriver(){
-//         return driver;
-//    }
 
 }

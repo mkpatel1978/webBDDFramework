@@ -3,38 +3,23 @@ package org.hrm.stepDefinitions;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import org.hrm.pages.adminPage;
-import org.hrm.pages.loginPage;
+
 import org.testng.Assert;
 
-public class adminPageStepDef extends BaseClass {
+import java.time.Duration;
 
-    //    private WebDriver driver;
-    private loginPage loginPage;
-    private adminPage adminPage;
+import org.hrm.pages.adminPage;
+import org.hrm.pages.loginPage;
 
-    //    @Before
-//    public void setup() {
-//        System.out.println("MK:setupadmin - ");
-//        setupApplication();
-//
-//        loginPage = new loginPage(driver);
-//        adminPage = new adminPage(driver);
-//    }
-//
-//    @After
-//    public void tearDown() {
-//        closeApplication();
-//        System.out.println("MK:downadmin - ");
-//    }
+public class adminPageStepDef {
+
+    private loginPage loginPage = new loginPage(BaseClass.getDriver());
+    private adminPage adminPage = new adminPage(BaseClass.getDriver());
 
     @Given("Go to the webpage for admin")
     public void go_to_the_webpage_for_admin() {
-        setupApplication();
-//        driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
-        driver.get(URL + "web/index.php/auth/login");
-        loginPage = new loginPage(driver);
-        adminPage = new adminPage(driver);
+        System.out.println("Admindriver" + loginPage.getPageTitle());
+        BaseClass.getDriver().get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
     }
 
     @Given("Login to website")
@@ -61,11 +46,6 @@ public class adminPageStepDef extends BaseClass {
         if (loginPage.checkLogoutBtn() == true) {
             loginPage.clickLogout();
         } else System.out.println("Element Not Found!!!");
-    }
-
-    @Then("Ensure Application is closed Admin")
-    public void Ensure_Application_is_closed_Admin() {
-        closeApplication();
     }
 
 }

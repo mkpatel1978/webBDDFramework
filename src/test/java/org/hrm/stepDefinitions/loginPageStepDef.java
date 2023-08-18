@@ -6,37 +6,19 @@ import io.cucumber.java.en.When;
 
 import org.testng.Assert;
 
+import java.time.Duration;
+
 import org.hrm.pages.loginPage;
 
-public class loginPageStepDef extends BaseClass {
+public class loginPageStepDef {
 
-
-    //        private WebDriver driver;
-    private loginPage loginPage;
-
-    //    @Before
-//    public void setup() {
-//        System.out.println("MK:setuplogin - ");
-//        setupApplication();
-//        loginPage = new loginPage(driver);
-//    }
-//
-//    @After
-//    public void tearDown() {
-//        closeApplication();
-//        System.out.println("MK:downlogin - ");
-//    }
-
+    private loginPage loginPage = new loginPage(BaseClass.getDriver());
 
     @Given("Go to the webpage for login")
     public void go_to_the_webpage_for_login() {
-        setupApplication();
-        driver.get(URL + "web/index.php/auth/login");
-        loginPage = new loginPage(driver);
-        System.out.println("Logindriver: " + driver);
-        System.out.println("loginpage: " + loginPage);
+        System.out.println("logindriver" + loginPage.getPageTitle());
+        BaseClass.getDriver().get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
     }
-
 
     @Given("Enter the correct credential")
     public void enter_the_correct_credential() {
@@ -88,11 +70,6 @@ public class loginPageStepDef extends BaseClass {
     public void password_reset_message_should_appear() {
         String resetMsg = loginPage.verifyResetPasswordMsg();
         Assert.assertEquals(resetMsg, "Reset Password link sent successfully");
-    }
-
-    @Then("Ensure Application is closed")
-    public void Ensure_Application_is_closed() {
-        closeApplication();
     }
 
 }

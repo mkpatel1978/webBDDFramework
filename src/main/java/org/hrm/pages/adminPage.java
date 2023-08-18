@@ -11,7 +11,6 @@ public class adminPage {
 
     public adminPage(WebDriver driver) {
         this.driver = driver;
-//        driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
     }
 
     public void clickAdminSection() {
